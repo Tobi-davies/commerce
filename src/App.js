@@ -20,7 +20,7 @@ const App = () => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
       createUserProfileDocument(user);
 
-      console.log(user);
+      // console.log(user);
     });
 
     return () => {
