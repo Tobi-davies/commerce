@@ -17,8 +17,24 @@ const App = () => {
   // const unsubscribeFromAuth = null
 
   useEffect(() => {
-    const unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
-      createUserProfileDocument(user);
+    const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      // createUserProfileDocument(user);
+
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot((snapShot) => {
+          updateCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
+          });
+
+          console.log(currentUser);
+        });
+        console.log(currentUser);
+      } else {
+        updateCurrentUser(userAuth);
+      }
 
       // console.log(user);
     });
