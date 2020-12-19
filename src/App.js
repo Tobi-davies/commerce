@@ -13,6 +13,7 @@ const App = () => {
   // const changeName = () => {
   //   setName("Tobenz")
   // }
+  console.log(currentUser);
 
   // const unsubscribeFromAuth = null
 
@@ -29,20 +30,22 @@ const App = () => {
             ...snapShot.data(),
           });
 
-          console.log(currentUser);
+          // console.log(currentUser);
         });
-        console.log(currentUser);
+        // console.log(currentUser);
       } else {
         updateCurrentUser(userAuth);
       }
 
       // console.log(user);
+      console.log(currentUser);
     });
 
     return () => {
       unsubscribeFromAuth();
     };
-  });
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="App">
