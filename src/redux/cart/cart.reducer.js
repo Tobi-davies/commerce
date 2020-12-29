@@ -3,7 +3,7 @@ const INITIAL_STATE = {
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
-  switch (actiom.payload) {
+  switch (action.payload) {
     case TOGGLE_CART_HIDDEN:
       return {
         ...state,
