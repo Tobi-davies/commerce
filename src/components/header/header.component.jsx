@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 import "./header.styles.css";
 import { auth } from "../../firebase/firebase.utils";
 import CartIcon from "../cart-icon/cart-icon.component";
-import Cart from "../cart-dropdown/cart-dropdown.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 const Header = ({ currentUser, hidden }) => (
   <div className="header">
@@ -30,7 +30,7 @@ const Header = ({ currentUser, hidden }) => (
       )}
       <CartIcon />
     </div>
-    {hidden ? null : <Cart />}
+    {hidden ? null : <CartDropdown />}
   </div>
 );
 
