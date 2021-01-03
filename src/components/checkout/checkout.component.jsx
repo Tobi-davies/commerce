@@ -9,7 +9,7 @@ import { createStructuredSelector } from "reselect";
 import CheckoutItem from "../checkout-item/checkout-item.component";
 
 const CheckoutPage = ({ cartItems, total }) => {
-  console.log(cartItems);
+  // console.log(cartItems);
 
   return (
     <div className="checkout-page">
