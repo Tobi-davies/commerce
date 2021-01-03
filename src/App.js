@@ -11,6 +11,7 @@ import { setCurrentUser } from "./redux/user/user.actions";
 import { connect } from "react-redux";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
+import CheckoutPage from "./components/checkout/checkout.component";
 
 const App = (props) => {
   // const [currentUser, updateCurrentUser] = useState(null);
@@ -62,6 +63,7 @@ const App = (props) => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
+        <Route exact path="/checkout" component={CheckoutPage} />
         <Route
           exact
           path="/signin"
