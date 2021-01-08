@@ -7,6 +7,11 @@ const StriptCheckoutButton = ({ price }) => {
   const publishableKey =
     "pk_test_51I73R8FwU1ktTra1oewqm3qXTny3lpbqKbViydrJgfJyVR3fn1CajWrNJZDKYczo6hIIVzsknWUoLXNNxNQqyt9I00M1qXfLFv";
 
+  const onToken = (token) => {
+    console.log(token);
+    alert("Payment successful");
+  };
+
   return (
     <StripeCheckout
       label="Pay Now"
@@ -22,3 +27,5 @@ const StriptCheckoutButton = ({ price }) => {
     />
   );
 };
+
+export default StriptCheckoutButton;
