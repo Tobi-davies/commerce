@@ -12,7 +12,6 @@ import { connect } from "react-redux";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
 import CheckoutPage from "./components/checkout/checkout.component";
-// import styled from 'styled-components'
 
 const App = (props) => {
   // const [currentUser, updateCurrentUser] = useState(null);
