@@ -1,4 +1,4 @@
-.header {
+/* .header {
   height: 70px;
   width: 100%;
   display: flex;
@@ -6,21 +6,19 @@
   margin-bottom: 25px;
 }
 .header .logo-container {
-    height: 100%;
-    width: 70px;
-    padding: 25px;
-  }
+  height: 100%;
+  width: 70px;
+  padding: 25px;
+}
 
-  .header .options {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-    .header  .option {
-      padding: 10px 15px;
-      cursor: pointer;
-    }
-  
-
+.header .options {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.header .option {
+  padding: 10px 15px;
+  cursor: pointer;
+} */
