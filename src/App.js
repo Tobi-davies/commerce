@@ -6,12 +6,17 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-sign-up.component";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+  addCollectionAndDocuments,
+} from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { connect } from "react-redux";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
 import CheckoutPage from "./components/checkout/checkout.component";
+import { selectCollectionsForPreview } from "./redux/shop/shop.selectors";
 
 const App = (props) => {
   // const [currentUser, updateCurrentUser] = useState(null);
@@ -45,6 +50,10 @@ const App = (props) => {
       } else {
         // updateCurrentUser(userAuth);
         props.setCurrentUser(userAuth);
+        addCollectionAndDocuments(
+          "collections",
+          props.collectionArray.map(({ title, items }) => ({ title, items }))
+        );
       }
 
       // console.log(user);
@@ -82,6 +91,7 @@ const App = (props) => {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  collectionArray: selectCollectionsForPreview,
 });
 
 const mapDispatchToProps = (dispatch) => ({
