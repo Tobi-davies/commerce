@@ -46,9 +46,6 @@ const App = (props) => {
         // updateCurrentUser(userAuth);
         props.setCurrentUser(userAuth);
       }
-
-      // console.log(user);
-      // console.log(currentUser);
     });
 
     return () => {
