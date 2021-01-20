@@ -3,7 +3,10 @@ import CollectionsOverview from "../../components/collections-overview/collectio
 import { Route } from "react-router-dom";
 import CollectionPage from "../collection/collection.component";
 
-import { firestore } from "../../firebase/firebase.utils";
+import {
+  firestore,
+  convertCollectionsSnapshotToMap,
+} from "../../firebase/firebase.utils";
 import { useEffect } from "react";
 // import { render } from "node-sass";
 
@@ -19,7 +22,7 @@ const ShopPage = ({ match }) => {
   useEffect(() => {
     const collectionRef = firestore.collection("collections");
     collectionRef.onSnapshot(async (snapshot) => {
-      console.log(snapshot);
+      convertCollectionsSnapshotToMap(snapshot);
     });
   });
 
