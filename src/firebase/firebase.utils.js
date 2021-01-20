@@ -79,7 +79,7 @@ export const convertCollectionsSnapshotToMap = (collections) => {
     return accumulator;
   }, {});
 
-  console.log(transformedCollection);
+  // console.log(transformedCollection);
 };
 
 firebase.initializeApp(config);
