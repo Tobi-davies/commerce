@@ -17,14 +17,24 @@ import { useEffect } from "react";
 // import { selectCollections } from "../../redux/shop/shop.selectors";
 
 const ShopPage = ({ match }) => {
-  // unsubscribeFromSnapshot = null;
+  // const unsubscribeFromSnapshot = null;
 
   useEffect(() => {
     const collectionRef = firestore.collection("collections");
-    collectionRef.onSnapshot(async (snapshot) => {
-      convertCollectionsSnapshotToMap(snapshot);
-    });
-  });
+    const unsubscribeFromSnapshot = collectionRef.onSnapshot(
+      async (snapshot) => {
+        const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+
+        console.log(collectionsMap);
+      }
+    );
+
+    return () => {
+      unsubscribeFromSnapshot();
+    };
+
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="shop-page">
@@ -45,9 +55,13 @@ export default ShopPage;
 
 //   componentDidMount() {
 //     const collectionRef = firestore.collection("collections");
-//     collectionRef.onSnapshot(async (snapshot) => {
-//       console.log(snapshot);
-//     });
+//     this.unsubscribeFromSnapshot = collectionRef.onSnapshot(
+//       async (snapshot) => {
+//         const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+
+//         console.log(collectionsMap);
+//       }
+//     );
 //   }
 
 //   render() {
@@ -65,3 +79,5 @@ export default ShopPage;
 //     );
 //   }
 // }
+
+// export default ShopPage;
