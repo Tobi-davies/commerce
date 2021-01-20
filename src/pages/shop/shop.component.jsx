@@ -8,6 +8,8 @@ import {
   convertCollectionsSnapshotToMap,
 } from "../../firebase/firebase.utils";
 import { useEffect } from "react";
+import { connect } from "react-redux";
+import { updateCollections } from "../../redux/shop/shop.actions";
 // import { render } from "node-sass";
 
 // import SHOP_DATA from "./shop.data";
@@ -16,7 +18,7 @@ import { useEffect } from "react";
 // import { createStructuredSelector } from "reselect";
 // import { selectCollections } from "../../redux/shop/shop.selectors";
 
-const ShopPage = ({ match }) => {
+const ShopPage = ({ match, updateCollections }) => {
   // const unsubscribeFromSnapshot = null;
 
   useEffect(() => {
@@ -26,6 +28,7 @@ const ShopPage = ({ match }) => {
         const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
 
         console.log(collectionsMap);
+        updateCollections(collectionsMap);
       }
     );
 
@@ -48,7 +51,12 @@ const ShopPage = ({ match }) => {
   );
 };
 
-export default ShopPage;
+const mapDispatchToProps = (dispatch) => ({
+  updateCollections: (collectionsMap) =>
+    dispatch(updateCollections(collectionsMap)),
+});
+
+export default connect(null, mapDispatchToProps)(ShopPage);
 
 // class ShopPage extends React.Component {
 //   unsubscribeFromSnapshot = null;
