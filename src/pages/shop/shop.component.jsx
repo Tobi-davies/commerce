@@ -30,19 +30,26 @@ const ShopPage = ({ match, updateCollections }) => {
 
   useEffect(() => {
     const collectionRef = firestore.collection("collections");
-    const unsubscribeFromSnapshot = collectionRef.onSnapshot(
-      async (snapshot) => {
-        const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
 
-        console.log(collectionsMap);
-        updateCollections(collectionsMap);
-        setLoading(false);
-      }
-    );
+    collectionRef.get().then((snapshot) => {
+      const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
 
-    return () => {
-      unsubscribeFromSnapshot();
-    };
+      console.log(collectionsMap);
+      updateCollections(collectionsMap);
+      setLoading(false);
+    });
+
+    // collectionRef.onSnapshot(async (snapshot) => {
+    //   const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+
+    //   console.log(collectionsMap);
+    //   updateCollections(collectionsMap);
+    //   setLoading(false);
+    // });
+
+    // return () => {
+    //   unsubscribeFromSnapshot();
+    // };
 
     // eslint-disable-next-line
   }, []);
