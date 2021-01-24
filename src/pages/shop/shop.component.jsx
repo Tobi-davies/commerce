@@ -33,6 +33,7 @@ const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 const ShopPage = ({
   match,
   isCollectionFetching,
+  isCollectionLoaded,
   fetchCollectionsStartAsync,
 }) => {
   useEffect(() => {
@@ -65,7 +66,7 @@ const ShopPage = ({
   //   unsubscribeFromSnapshot();
   // };
 
-  // eslint-disable-next-line
+  // // eslint-disable-next-line
   // }, []);
 
   return (
@@ -85,7 +86,7 @@ const ShopPage = ({
         path={`${match.url}/:collectionId`}
         render={(props) => (
           <CollectionPageWithSpinner
-            isLoading={isCollectionFetching}
+            isLoading={!isCollectionLoaded}
             {...props}
           />
         )}
