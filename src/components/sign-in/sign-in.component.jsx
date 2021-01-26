@@ -10,14 +10,14 @@
 //     password: "",
 //   });
 
+//   const { email, password } = userInfo;
+
 //   const handleSubmit = async (event) => {
 //     event.preventDefault();
 
-//     const { email, password } = userInfo;
-
 //     try {
 //       await auth.signInWithEmailAndPassword(email, password);
-//       setInfo({
+//       setUserInfo({
 //         email: "",
 //         password: "",
 //       });
@@ -44,7 +44,7 @@
 //         <FormInput
 //           name="email"
 //           type="email"
-//           value={userInfo.email}
+//           value={email}
 //           label="Email"
 //           handleChange={handleChange}
 //           required
@@ -53,7 +53,7 @@
 //         <FormInput
 //           name="passsword"
 //           type="password"
-//           value={userInfo.password}
+//           value={password}
 //           label="password"
 //           handleChange={handleChange}
 //           required

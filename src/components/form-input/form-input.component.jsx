@@ -16,6 +16,7 @@ const FormInput = ({ handleChange, label, ...otherProps }) => (
         {label}
       </label>
     ) : null}
+    {/* {label ? <label className="form-input-label">{label}</label> : null} */}
   </div>
 );
 
