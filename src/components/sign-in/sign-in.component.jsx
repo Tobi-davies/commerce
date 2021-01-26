@@ -5,7 +5,7 @@
 // import { signInWithGoogle, auth } from "../../firebase/firebase.utils";
 
 // const SignIn = () => {
-//   const [info, setInfo] = useState({
+//   const [userInfo, setUserInfo] = useState({
 //     email: "",
 //     password: "",
 //   });
@@ -13,7 +13,7 @@
 //   const handleSubmit = async (event) => {
 //     event.preventDefault();
 
-//     const { email, password } = info;
+//     const { email, password } = userInfo;
 
 //     try {
 //       await auth.signInWithEmailAndPassword(email, password);
@@ -24,15 +24,15 @@
 //     } catch (error) {
 //       console.log(error);
 //     }
-//     setInfo({
-//       email: "",
-//       password: "",
-//     });
+//     // setInfo({
+//     //   email: "",
+//     //   password: "",
+//     // });
 //   };
 
 //   const handleChange = (e) => {
 //     const { value, name } = e.target;
-//     setInfo({ [name]: value });
+//     setUserInfo({ [name]: value });
 //   };
 
 //   return (
@@ -44,7 +44,7 @@
 //         <FormInput
 //           name="email"
 //           type="email"
-//           value={info.email}
+//           value={userInfo.email}
 //           label="Email"
 //           handleChange={handleChange}
 //           required
@@ -53,7 +53,7 @@
 //         <FormInput
 //           name="passsword"
 //           type="password"
-//           value={info.password}
+//           value={userInfo.password}
 //           label="password"
 //           handleChange={handleChange}
 //           required
