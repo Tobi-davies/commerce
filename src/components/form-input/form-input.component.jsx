@@ -9,14 +9,16 @@ const FormInput = ({ handleChange, label, ...otherProps }) => (
       {...otherProps}
       autoComplete="new-password"
     />
-    {label ? (
+    {/* {label ? (
       <label
-        className={`${otherProps.value.length} ? 'shrink' : ''} form-input-label`}
+        className={`${
+          otherProps.value.length ? "shrink" : ""
+        } form-input-label`}
       >
         {label}
       </label>
-    ) : null}
-    {/* {label ? <label className="form-input-label">{label}</label> : null} */}
+    ) : null} */}
+    {label ? <label className="form-input-label">{label}</label> : null}
   </div>
 );
 
