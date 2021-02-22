@@ -38,9 +38,7 @@ const ShopPage = ({
 }) => {
   useEffect(() => {
     fetchCollectionsStartAsync();
-
-    // eslint-disable-next-line
-  }, []);
+  }, [fetchCollectionsStartAsync]);
   // const unsubscribeFromSnapshot = null;
 
   // useEffect(() => {
