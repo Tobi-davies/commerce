@@ -1,15 +1,15 @@
 import React from "react";
-import CollectionsOverview from "../../components/collections-overview/collections-overview.component";
+// import CollectionsOverview from "../../components/collections-overview/collections-overview.component";
 import { Route } from "react-router-dom";
-import CollectionPage from "../collection/collection.component";
-import WithSpinner from "../../components/with-spinner/with-spinner.component";
+// import CollectionPage from "../collection/collection.component";
+// import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
 import { fetchCollectionsStartAsync } from "../../redux/shop/shop.actions";
-import {
-  selectIsCollectionFetching,
-  selectIsCollectionLoaded,
-} from "../../redux/shop/shop.selectors";
-import { createStructuredSelector } from "reselect";
+// import {
+//   selectIsCollectionFetching,
+//   selectIsCollectionLoaded,
+// } from "../../redux/shop/shop.selectors";
+// import { createStructuredSelector } from "reselect";
 // import {
 //   firestore,
 //   convertCollectionsSnapshotToMap,
@@ -17,7 +17,7 @@ import { createStructuredSelector } from "reselect";
 // import { useEffect } from "react";
 import { connect } from "react-redux";
 // import { updateCollections } from "../../redux/shop/shop.actions";
-import { useState } from "react";
+// import { useState } from "react";
 import { useEffect } from "react";
 // import { render } from "node-sass";
 
@@ -26,14 +26,19 @@ import { useEffect } from "react";
 
 // import { createStructuredSelector } from "reselect";
 // import { selectCollections } from "../../redux/shop/shop.selectors";
-const CollectionOverviewWithSpinner = WithSpinner(CollectionsOverview);
 
-const CollectionPageWithSpinner = WithSpinner(CollectionPage);
+import CollectionsOverviewContainer from "../../components/collections-overview/collections-overview.container";
+
+import CollectionPageContainer from "../collection/collection.container";
+
+// const CollectionOverviewWithSpinner = WithSpinner(CollectionsOverview);
+
+// const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
 const ShopPage = ({
   match,
-  isCollectionFetching,
-  isCollectionLoaded,
+  // isCollectionFetching,
+  // isCollectionLoaded,
   fetchCollectionsStartAsync,
 }) => {
   useEffect(() => {
@@ -72,22 +77,12 @@ const ShopPage = ({
       <Route
         exact
         path={`${match.url}`}
-        render={(props) => (
-          <CollectionOverviewWithSpinner
-            isLoading={isCollectionFetching}
-            {...props}
-          />
-        )}
+        component={CollectionsOverviewContainer}
       />
       <Route
         exact
         path={`${match.url}/:collectionId`}
-        render={(props) => (
-          <CollectionPageWithSpinner
-            isLoading={!isCollectionLoaded}
-            {...props}
-          />
-        )}
+        component={CollectionPageContainer}
       />
     </div>
   );
@@ -97,12 +92,12 @@ const mapDispatchToProps = (dispatch) => ({
   fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
 });
 
-const mapStateToProps = createStructuredSelector({
-  isCollectionFetching: selectIsCollectionFetching,
-  isCollectionLoaded: selectIsCollectionLoaded,
-});
+// const mapStateToProps = createStructuredSelector({
+//   isCollectionFetching: selectIsCollectionFetching,
+//   isCollectionLoaded: selectIsCollectionLoaded,
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);
+export default connect(null, mapDispatchToProps)(ShopPage);
 
 // class ShopPage extends React.Component {
 //   unsubscribeFromSnapshot = null;
