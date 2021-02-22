@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 // import CollectionPage from "../collection/collection.component";
 // import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
-import { fetchCollectionsStartAsync } from "../../redux/shop/shop.actions";
+import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
 // import {
 //   selectIsCollectionFetching,
 //   selectIsCollectionLoaded,
@@ -39,11 +39,12 @@ const ShopPage = ({
   match,
   // isCollectionFetching,
   // isCollectionLoaded,
-  fetchCollectionsStartAsync,
+  fetchCollectionsStart,
 }) => {
   useEffect(() => {
-    fetchCollectionsStartAsync();
-  }, [fetchCollectionsStartAsync]);
+    fetchCollectionsStart();
+    // eslint-disable-next-line
+  }, []);
   // const unsubscribeFromSnapshot = null;
 
   // useEffect(() => {
@@ -89,7 +90,7 @@ const ShopPage = ({
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
 });
 
 // const mapStateToProps = createStructuredSelector({
