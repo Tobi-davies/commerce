@@ -129,6 +129,19 @@ class SignUp extends React.Component {
 
     if (password !== confirmPassword) {
       alert("passwords don't match");
+      this.setState({
+        password: "",
+        confirmPassword: "",
+      });
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("passwords is too weak, try another password");
+      this.setState({
+        password: "",
+        confirmPassword: "",
+      });
       return;
     }
 
