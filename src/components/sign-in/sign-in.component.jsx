@@ -75,7 +75,7 @@
 
 // const mapDispatchToProps = dispatch => ({
 //   googleSignInStart: () => dispatch(googleSignInStart()),
-// emailSignInStart: (email, passowrd) => dispatch(emailSignInStart({email, passowrd}))
+// emailSignInStart: (email, password) => dispatch(emailSignInStart({email, password}))
 // })
 
 // export default connect(null,mapDispatchToProps)(SignIn);
