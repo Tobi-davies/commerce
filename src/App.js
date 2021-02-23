@@ -14,44 +14,26 @@ import { createStructuredSelector } from "reselect";
 import CheckoutPage from "./components/checkout/checkout.component";
 
 const App = (props) => {
-  // const [currentUser, updateCurrentUser] = useState(null);
-  // const changeName = () => {
-  //   setName("Tobenz")
-  // }
-  // console.log(currentUser);
-
-  // const unsubscribeFromAuth = null
-
   useEffect(() => {
-    const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-      // createUserProfileDocument(user);
-
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        userRef.onSnapshot((snapShot) => {
-          // updateCurrentUser({
-          //   id: snapShot.id,
-          //   ...snapShot.data(),
-          // });
-          props.setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
-          });
-
-          // console.log(currentUser);
-        });
-        // console.log(currentUser);
-      } else {
-        // updateCurrentUser(userAuth);
-        props.setCurrentUser(userAuth);
-      }
-    });
-
-    return () => {
-      unsubscribeFromAuth();
-    };
-    // eslint-disable-next-line
+    // const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+    // createUserProfileDocument(user);
+    // if (userAuth) {
+    //   const userRef = await createUserProfileDocument(userAuth);
+    //   userRef.onSnapshot((snapShot) => {
+    //     props.setCurrentUser({
+    //       id: snapShot.id,
+    //       ...snapShot.data(),
+    //     });
+    //   });
+    // } else {
+    //   // updateCurrentUser(userAuth);
+    //   props.setCurrentUser(userAuth);
+    // }
+    // });
+    // return () => {
+    //   unsubscribeFromAuth();
+    // };
+    // // eslint-disable-next-line
   }, []);
 
   return (
