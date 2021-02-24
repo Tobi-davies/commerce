@@ -43,8 +43,7 @@ const ShopPage = ({
 }) => {
   useEffect(() => {
     fetchCollectionsStart();
-    // eslint-disable-next-line
-  }, []);
+  }, [fetchCollectionsStart]);
   // const unsubscribeFromSnapshot = null;
 
   // useEffect(() => {

@@ -36,8 +36,7 @@ const App = ({ currentUser, checkUserSession }) => {
     // return () => {
     //   unsubscribeFromAuth();
     // };
-    // eslint-disable-next-line
-  }, []);
+  }, [checkUserSession]);
 
   return (
     <div className="App">
