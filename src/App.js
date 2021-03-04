@@ -16,6 +16,8 @@ import { createStructuredSelector } from "reselect";
 import CheckoutPage from "./components/checkout/checkout.component";
 
 const App = ({ currentUser, checkUserSession }) => {
+  console.log(currentUser);
+
   useEffect(() => {
     checkUserSession();
     // const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
