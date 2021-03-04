@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./homepage.style.css";
+// import "./homepage.style.css";
 import Directory from "../../components/directory/directory.component";
 import { HomePageContainer } from "./homepage.styles";
 
